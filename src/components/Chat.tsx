@@ -1,7 +1,6 @@
 import {
   Button,
   Loader,
-  Placeholder,
   useAuthenticator,
   View,
 } from "@aws-amplify/ui-react";
@@ -11,7 +10,7 @@ import { amplifyClient } from "../amplify-utils";
 const { useAIConversation } = createAIHooks(amplifyClient);
 
 export function Chat() {
-  const { user, signOut } = useAuthenticator();
+  const { user } = useAuthenticator();
   const [
     {
       data: { messages },
@@ -24,7 +23,7 @@ export function Chat() {
   async function callListMessages(): Promise<void> {
     try {
       // list conversations
-      const { data, errors } =
+      const { data } =
         await amplifyClient.conversations.travelAgent.list();
       console.log("Fetched messages:", data);
       data.map((item) =>
