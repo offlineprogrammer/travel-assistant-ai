@@ -5,7 +5,7 @@ const SYSTEM_PROMPT =
 
 const schema = a.schema({
   travelAgent: a.conversation({
-    aiModel: a.ai.model('Claude 3.5 Sonnet'),
+    aiModel: a.ai.model('Claude 3 Haiku'),
     systemPrompt: SYSTEM_PROMPT,
   }),
 });
